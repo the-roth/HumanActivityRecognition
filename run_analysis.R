@@ -10,7 +10,7 @@
 library(data.table)
 library(dplyr)
 
-if (!file.info('UCI HAR Dataset')$isdir) {
+if(!dir.exists('UCI HAR Dataset')) {
     File <- 'http://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip'
     dir.create('UCI HAR Dataset')
     download.file(File, 'UCI-HAR-dataset.zip')
