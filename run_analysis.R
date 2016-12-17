@@ -10,6 +10,13 @@
 library(data.table)
 library(dplyr)
 
+if (!file.info('UCI HAR Dataset')$isdir) {
+    File <- 'http://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip'
+    dir.create('UCI HAR Dataset')
+    download.file(File, 'UCI-HAR-dataset.zip')
+    unzip('./UCI-HAR-dataset.zip')
+}
+
 # Create data tables from data
 XTrain = read.table('./UCI HAR Dataset/train/X_train.txt', header = F)
 YTrain = read.table('./UCI HAR Dataset/train/y_train.txt', header = F)
